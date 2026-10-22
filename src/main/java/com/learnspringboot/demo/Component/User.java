@@ -5,13 +5,14 @@ import org.springframework.stereotype.Component;
 
 @Component 
 public class User {
-    Order order = new Order();
+    Order order;
+    OnlineOrder onlineOrder;
 
-    public User(){
+    @Autowired 
+    public User(Order order, OnlineOrder onlineOrder){
+        this.order = order;
+        this.onlineOrder = onlineOrder;
         System.out.println("initial user");
     }
-    @Autowired 
-    public void setOrder(Order order){
-        this.order=order;
-    }
+    
 }
